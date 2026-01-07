@@ -57,3 +57,23 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Notions clés utilisées dans ce projet
+
+- **Concepts Angular utilisés**
+  - **Services** pour gérer les données métier (liste de tâches) et encapsuler la logique.
+  - **Observables / BehaviorSubject** pour exposer un flux de données réactif au composant.
+  - **Templates déclaratifs** avec les nouveaux contrôles de flux `@if` / `@for` et le pipe `| async`.
+
+- **Ce que fait `BehaviorSubject`**
+  - C’est un type d’`Observable` qui stocke la dernière valeur émise.
+  - Il permet de pousser de nouvelles valeurs et de notifier automatiquement tous les composants.
+
+- **Ce que fait le pipe `| async`**
+  - Il récupère la dernière valeur émise et la rend dans la vue, en déclenchant la détection de changement.
+  - Il gère la destruction d'un composant, évitant des fuites de mémoire.
+
+- **Flux `service → composant → template`**
+  - Le **service** contient les données et la logique
+  - Le **composant** injecte le service, expose un `Observable` ou un signal au template.
+  - Le **template** consomme ces données avec et s’actualise automatiquement quand le service émet une nouvelle valeur.
