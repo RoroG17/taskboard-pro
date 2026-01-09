@@ -1,0 +1,65 @@
+.highlight-card {
+    background: #4f46e5;
+    color: white;
+    border-radius: 16px;
+    padding: 1.5rem 2rem;
+    margin-top: 1rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .highlight-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  }
+  
+  .highlight-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .highlight-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    word-break: break-word;
+    margin-bottom: 0.6rem;
+  }
+  
+  .highlight-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.95rem;
+  }
+  
+  /* DATE */
+  .highlight-date {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+  }
+  
+  /* STATUTS */
+  .highlight-status {
+    padding: 0.3rem 0.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+  
+  .status-a-faire {
+    background: #facc15; /* jaune */
+    color: #1f2937;
+  }
+  
+  .status-en-cours {
+    background: #3b82f6; /* bleu */
+    color: white;
+  }
+  
+  .status-termine {
+    background: #16a34a; /* vert */
+    color: white;
+  }
+  
