@@ -1,14 +1,5 @@
-<input #taskInput placeholder="Nouvelle tâche">
-<button (click)="addTask(taskInput.value); taskInput.value = ''">
-  Ajouter
-</button>
-
-@if (tasks$ | async; as tasks) {
-    <ul>
-        @for (task of tasks; track task.id) {
-            <li>{{ task.title }}</li>
-        }
-    </ul>
-} @else {
-    <p>Loading tasks...</p>
-}
+<div class="welcome">
+    <h1>Bienvenue sur TaskBoard Pro</h1>
+    <p>Gérez vos tâches efficacement</p>
+    <a routerLink="/tasks">Voir mes tâches</a>
+  </div>

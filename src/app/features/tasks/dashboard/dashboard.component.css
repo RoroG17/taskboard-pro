@@ -1,0 +1,127 @@
+.dashboard-container {
+    padding: 2rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    color: #333;
+  }
+  
+  /* Stats */
+  .stats {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .stat-card {
+    flex: 1;
+    padding: 1rem;
+    border-radius: 12px;
+    color: white;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  }
+  
+  .status-a-faire {
+    background-color: #facc15; /* jaune */
+    color: #1f2937;
+  }
+  
+  .status-en-cours {
+    background-color: #3b82f6; /* bleu */
+    color: white;
+  }
+  
+  .status-termine {
+    background-color: #16a34a; /* vert */
+    color: white;
+  }
+  
+  /* Colonnes */
+  .columns {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .column {
+    flex: 1;
+    background: #f5f5f5;
+    padding: 1rem;
+    border-radius: 12px;
+  }
+  
+  .column h3 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  
+  /* Tâches */
+  .task-card {
+    background: white;
+    padding: 0.8rem 1rem;
+    border-radius: 10px;
+    margin-bottom: 0.8rem;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    color: #111;
+  }
+  
+  
+  .task-title {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+  }
+  
+  .task-date {
+    font-size: 0.85rem;
+    color: #666;
+  }
+  
+  /* Statut couleurs pour tâches */
+  .task-card.status-a-faire {
+    border-left: 4px solid #facc15;
+  }
+  
+  .task-card.status-en-cours {
+    border-left: 4px solid #3b82f6;
+  }
+  
+  .task-card.status-termine {
+    border-left: 4px solid #16a34a;
+  }
+
+  /* Progression */
+.progress-container {
+  background: #f1f5f9;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1f2937;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #3b82f6, #16a34a);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+  

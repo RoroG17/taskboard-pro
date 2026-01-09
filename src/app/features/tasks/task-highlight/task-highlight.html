@@ -1,0 +1,13 @@
+<div class="highlight-card">
+    <h3>Tâche mise en avant</h3>
+  
+    <p class="highlight-title">{{ title }}</p>
+  
+    <div class="highlight-meta">
+      <span class="highlight-date">{{ date | date:'shortDate' }}</span>
+      <span class="highlight-status" [ngClass]="getStatusClass()">
+        {{ getStatusLabel() }}
+      </span>
+    </div>
+  </div>
+  

@@ -77,3 +77,17 @@ For more information on using the Angular CLI, including detailed command refere
   - Le **service** contient les données et la logique
   - Le **composant** injecte le service, expose un `Observable` ou un signal au template.
   - Le **template** consomme ces données avec et s’actualise automatiquement quand le service émet une nouvelle valeur.
+
+## Séquence 3 — Lazy Loading & Composants dynamiques
+
+**Lazy Loading**
+
+Le Lazy Loading permet de charger les modules Angular uniquement lorsqu’ils sont nécessaires. Cela réduit le poids initial de l’application et améliore les performances. Dans Angular, on utilise loadChildren dans les routes pour charger un module au moment où l’utilisateur navigue vers une fonctionnalité.
+
+**Structure d’une app avec features**
+
+Il est conseillé d’organiser l’application par dossiers de fonctionnalités dans features/. Chaque feature contient ses composants, services, modules et fichiers liés. Cette organisation rend le projet plus modulaire, lisible et facile à maintenir.
+
+**Composants dynamiques**
+
+Un composant dynamique est un composant Angular créé et injecté dans la vue à la volée, sans être présent directement dans le template. Cela est utile pour les modals, cartes mises en avant, notifications, etc. Il permet de créer des composants uniquement quand c’est nécessaire.

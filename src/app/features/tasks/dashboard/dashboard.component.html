@@ -1,0 +1,57 @@
+<div class="dashboard-container">
+
+    <h2>Dashboard des tâches</h2>
+  
+    <!-- Statistiques -->
+    @if (tasks$ | async; as tasks) {
+      <div class="stats">
+        @for (status of statuses; track status) {
+          <div class="stat-card" [ngClass]="getStatusClass(status)">
+            <h3>{{ getStatusLabel(status) }}</h3>
+            <p>{{ countTasks(tasks, status) }} tâche(s)</p>
+          </div>
+        }
+      </div>
+    
+  
+      <!-- Colonnes de tâches -->
+      <div class="columns">
+        @for (status of statuses; track status) {
+          <div class="column">
+            <h3>{{ getStatusLabel(status) }}</h3>
+      
+            <ul>
+              @for (task of tasks; track task.id) {
+                @if (task.status === status) {
+                  <ol class="task-card" [ngClass]="getStatusClass(task.status)">
+                    <div class="task-title">{{ task.title }}</div>
+                    <div class="task-date">
+                      {{ task.date | date:'shortDate' }}
+                    </div>
+                  </ol>
+                }
+              }
+            </ul>
+          </div>
+        }
+      </div>
+<br>
+      <div class="progress-container">
+        <div class="progress-header">
+          <span>Avancement du projet </span>
+          <span>{{ getCompletionPercentage(tasks) }} %</span>
+        </div>
+    
+        <div class="progress-bar">
+          <div
+            class="progress-fill"
+            [style.width.%]="getCompletionPercentage(tasks)"
+          ></div>
+        </div>
+      </div>
+      
+    } @else {
+      <p>Chargement des tâches...</p>
+    }
+  </div>
+  

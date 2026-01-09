@@ -1,0 +1,225 @@
+/* =========================
+   RESET & VARIABLES
+========================= */
+:root {
+    --bg: #f4f6f9;
+    --card-bg: #ffffff;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --danger: #dc2626;
+    --text-main: #111827;
+    --text-muted: #6b7280;
+    --border: #e5e7eb;
+    --radius: 14px;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  /* =========================
+     PAGE
+  ========================= */
+  .home-container {
+    min-height: 100vh;
+    padding: 2rem;
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  /* =========================
+     LAYOUT
+  ========================= */
+  .home-layout {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  @media (max-width: 900px) {
+    .home-layout {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  /* =========================
+     CARDS GÉNÉRALES
+  ========================= */
+  .card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1.8rem;
+    box-shadow: var(--shadow);
+  }
+  
+  .card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  /* =========================
+     FORMULAIRE
+  ========================= */
+  .form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  
+  label {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+  
+  input {
+    padding: 0.7rem 0.9rem;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: 0.95rem;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: var(--primary);
+  }
+  
+  /* =========================
+     BOUTONS
+  ========================= */
+  .btn {
+    margin-top: 0.6rem;
+    padding: 0.6rem 1.2rem;
+    border-radius: 10px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    border: none;
+    transition: background 0.2s, transform 0.1s;
+  }
+  
+  .btn-primary {
+    background: var(--primary);
+  }
+  
+  .btn-primary:hover {
+    background: var(--primary-hover);
+  }
+  
+  .btn-danger {
+    background: #dc2626;
+    color: #ffffff;
+    border: none;
+  }
+  
+  .btn-danger:hover {
+    background: #b91c1c;
+  }
+  
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+  }
+  
+  .btn:hover {
+    transform: translateY(-1px);
+  }
+  
+  /* =========================
+     LISTE DES TÂCHES
+  ========================= */
+  .tasks-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.2rem;
+  }
+  
+  /* =========================
+     CARTE TÂCHE
+  ========================= */
+  .task-item {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 1.2rem;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .task-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* =========================
+     CONTENU TÂCHE
+  ========================= */
+  .task-header {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+  
+  .task-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+  }
+  
+  .task-meta {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+  }
+  
+  /* =========================
+     ACTIONS TÂCHE
+  ========================= */
+  .task-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: auto;
+  }
+  
+  /* =========================
+     ÉTAT VIDE
+  ========================= */
+  .empty-state {
+    text-align: center;
+    color: var(--text-muted);
+    padding: 2rem;
+  }
+  
+  /* =========================
+     HIGHLIGHT
+  ========================= */
+  #highlightContainer {
+    margin-top: 1.5rem;
+  }
+  
+  /* =========================
+     ANIMATION ÉDITION
+  ========================= */
+  input,
+  .task-item {
+    transition: all 0.2s ease;
+  }
+  
