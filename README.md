@@ -94,7 +94,7 @@ Un composant dynamique est un composant Angular créé et injecté dans la vue �
 
 ## Séquence 4 — Tests Unitaires Angular
 
-        ### 📚 Ce que j'ai appris
+        ### Ce que j'ai appris
 
         #### 1. Pourquoi tester ?
         - Les tests permettent de vérifier que le code fonctionne comme attendu et de détecter rapidement les régressions lors de modifications futures
@@ -113,12 +113,12 @@ Un composant dynamique est un composant Angular créé et injecté dans la vue �
         - **Fixture & detectChanges()** : fixture permet d’accéder au DOM du composant, et detectChanges() met à jour le rendu après modification des données ou des inputs
 
         #### 4. Types de tests pratiqués
-        - ✅ Test d'une classe simple (sans Angular)
-        - ✅ Test d'un service
-        - ✅ Test d'un composant avec TestBed
-        - ✅ Test des @Input
-        - ✅ Test des @Output
-        - ✅ Test du DOM
+        - Test d'une classe simple (sans Angular)
+        - Test d'un service
+        - Test d'un composant avec TestBed
+        - Test des @Input
+        - Test des @Output
+        - Test du DOM
 
         #### 5. Erreurs courantes rencontrées
         - Oublier `detectChanges()` : [conséquence]
@@ -147,24 +147,121 @@ Un composant dynamique est un composant Angular créé et injecté dans la vue �
         - [ ] Mocking avancé pour HttpClient
         - [ ] Tests de services asynchrones
 
-        ### 🎯 Projet : Tests TaskBoard Pro
+        ###  Projet : Tests TaskBoard Pro
 
         #### Tests implémentés
-        - [x] TaskService
-        - ✅ `addTask()`
-        - ✅ `deleteTask()`
-        - ✅ `getTasks()`
-        - [x] TaskHighlight Component
-        - ✅ Affichage du titre
-        - ✅ @Input title
-        - ✅ Rendu dans le DOM
+        - TaskService
+        - `addTask()`
+        - `deleteTask()`
+        - `getTasks()`
+        - TaskHighlight Component
+        - Affichage du titre
+        - @Input title
+        - Rendu dans le DOM
 
         #### Résultats
         - **Tests réussis** : 30 / 30
         - **Code coverage** : 83.19%
         - **Temps d'exécution** : 0.546s secondes
 
-        ### 📚 Ressources consultées
+        ### Ressources consultées
         - [Angular Testing Guide](https://angular.io/guide/testing)
         - [Jasmine Documentation](https://jasmine.github.io/)
         - [Notes de cours - Séquence 4]
+
+## Séquence 5 — Performance et Sécurité
+
+# Performance d’une application Angular
+
+Optimiser les performances est essentiel pour garantir une expérience utilisateur fluide, réduire le temps de chargement et améliorer la qualité globale de l’application.
+
+---
+
+## Outils d’analyse des performances
+
+### Angular DevTools
+
+Extension officielle pour Chrome permettant d’analyser :
+
+- L’arbre des composants
+- Les cycles de détection de changement
+- Les composants qui se re-rendent trop souvent
+- Le temps d’exécution des mises à jour
+
+Cet outil aide à identifier les problèmes liés au Change Detection et aux rendus inutiles.
+
+
+### Lighthouse (Chrome DevTools)
+
+Accessible via `F12 → Lighthouse`.
+
+Permet d’évaluer :
+
+- Performance
+- Accessibilité
+- Bonnes pratiques
+- SEO
+
+Il génère un score global et propose des recommandations concrètes (optimisation des images, lazy loading, réduction du JavaScript, etc.).
+
+# 🔐 Sécurité d’une application Angular
+
+La sécurité est un aspect fondamental d’une application web moderne.  
+Même si Angular intègre plusieurs mécanismes de protection par défaut, il est essentiel de comprendre les principales menaces afin d’appliquer les bonnes pratiques adaptées.
+
+---
+
+## XSS — Cross Site Scripting
+
+Une attaque **XSS (Cross Site Scripting)** consiste à injecter du code JavaScript malveillant dans une page web consultée par d’autres utilisateurs.
+
+L’objectif est généralement de :
+- Voler des données (cookies, tokens)
+- Rediriger l’utilisateur
+- Modifier le contenu de la page
+- Exécuter du code à l’insu de l’utilisateur
+
+## 2️⃣ CSRF — Cross Site Request Forgery
+
+Une attaque **CSRF (Cross Site Request Forgery)** consiste à forcer un utilisateur authentifié à effectuer une action non désirée sur une application web sur laquelle il est connecté.
+
+L’attaque exploite le fait que le navigateur envoie automatiquement les cookies de session lors d’une requête.
+
+---
+
+### Exemple d’attaque
+
+1. L’utilisateur est connecté à l’application.
+2. Il visite un site malveillant.
+3. Ce site déclenche automatiquement une requête `POST` vers l’API de l’application.
+4. Le serveur accepte la requête car la session est valide.
+
+L’utilisateur exécute alors une action (modification, suppression, paiement…) sans s’en rendre compte.
+
+
+Les bonnes pratiques sont :
+
+- Utiliser un **token CSRF** unique généré côté serveur.
+- Vérifier ce token à chaque requête sensible.
+- Configurer les cookies avec `SameSite=strict` ou `lax`.
+- Utiliser HTTPS pour sécuriser les échanges.
+- Vérifier l’origine des requêtes (`Origin` / `Referer`).
+
+Angular propose un support automatique du **XSRF Token** via `HttpClient`, qui ajoute automatiquement un token dans les requêtes HTTP protégées.
+
+---
+
+## Injection de Code
+
+L’injection de code consiste à insérer du code malveillant dans une application afin d’altérer son comportement.
+
+Elle peut prendre plusieurs formes :
+
+- Injection SQL
+- Injection JavaScript
+- Injection de commandes système
+
+L’objectif est souvent d’accéder à des données sensibles ou de contourner les mécanismes de sécurité.
+
+---
+
