@@ -1,0 +1,1 @@
+import{Ea as n,Ya as p,Za as m,nb as a}from"./chunk-VCTWHCQC.js";var o=class e{static \u0275fac=function(t){return new(t||e)};static \u0275cmp=n({type:e,selectors:[["app-about-component"]],decls:2,vars:0,template:function(t,c){t&1&&(p(0,"p"),a(1,"about-component works!"),m())},encapsulation:2})};var l=[{path:"",component:o}];export{l as ABOUT_ROUTES};
