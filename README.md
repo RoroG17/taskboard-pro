@@ -265,3 +265,81 @@ L’objectif est souvent d’accéder à des données sensibles ou de contourner
 
 ---
 
+# Déploiement d’une application Angular sur Vercel
+
+## Installer Vercel CLI 
+
+Pour déployer depuis le terminal et gérer facilement les projets :
+
+```bash
+npm install -g vercel
+vercel login
+```
+Modifier le fichier angular.json pour mettre les bonnes configurations 
+Ensuite il faut build le projet et déployer dans vercel
+
+```bash
+ng build --configuration production
+vercel
+```
+
+# SSR vs Prérendering dans Angular
+
+Lorsque l’on parle d’optimisation des performances et SEO dans Angular, il est important de comprendre la différence entre **SSR (Server-Side Rendering)** et le **Prérendering (Static Site Generation)**.
+
+---
+
+## SSR — Server-Side Rendering
+
+**Définition :**  
+Le SSR consiste à générer **la page HTML complète côté serveur** à chaque requête d’un utilisateur.
+
+### Comment ça fonctionne :
+
+1. L’utilisateur demande une URL (ex : `/tasks`).  
+2. Le serveur exécute Angular pour générer le HTML de la page.  
+3. Le serveur renvoie le HTML prêt à afficher dans le navigateur.  
+4. Angular "hydrate" ensuite la page côté client pour activer les interactions (clics, formulaires, etc.).
+
+### Avantages :
+
+- **SEO optimisé** : Les moteurs de recherche reçoivent le HTML complet.  
+- **Chargement initial rapide** : L’utilisateur voit du contenu immédiatement.  
+- Idéal pour les pages **dynamiques** qui changent souvent.
+
+### Inconvénients :
+
+- Le serveur doit **exécuter Angular pour chaque requête** → plus de ressources serveur.  
+- Complexité plus élevée côté backend.  
+- Pas nécessaire si le site est **statique** ou peu dynamique.
+
+---
+
+## Prérendering (ou Static Site Generation)
+
+**Définition :**  
+Le prérendering consiste à générer **toutes les pages HTML à l’avance**, **au moment du build**, et à les servir comme fichiers statiques.
+
+### Comment ça fonctionne :
+
+1. Pendant le build (`ng build` avec Angular Universal + prérender), Angular génère **une page HTML pour chaque route connue** (`/`, `/tasks`, `/profile`, etc.).  
+2. Les fichiers HTML sont stockés dans `dist/` et peuvent être servis par un serveur statique (Vercel, Netlify, GitHub Pages).  
+3. Angular est ensuite chargé côté client pour gérer l’interactivité.
+
+### Avantages :
+
+- **Très rapide** : Pas besoin de calcul côté serveur, tout est statique.  
+- **SEO optimisé** : Les moteurs de recherche reçoivent le HTML complet.  
+- Peut être hébergé sur n’importe quel serveur statique, même gratuit.
+
+### Inconvénients :
+
+- Les pages **doivent être connues à l’avance**.  
+- Pas pratique pour des contenus **très dynamiques** ou personnalisés.
+
+---
+
+## 🔑 En résumé
+
+- **SSR** → HTML généré **à la volée** pour chaque visite → dynamique, lourd côté serveur.  
+- **Prérender** → HTML généré **une fois au build** → rapide, statique, parfait pour contenu stable.
